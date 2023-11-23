@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage  {
+        stage ("list files"){
             step {
                 sh '''
                 ls -lrt
