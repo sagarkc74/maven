@@ -11,8 +11,8 @@ pipeline {
 
         stage('Example 2') {
                     steps {
-                        bat "ls -lrt"
-                        bat "java --version"
+                        sh "ls -lrt"
+                        sh "java --version"
                     }
 
                 }
