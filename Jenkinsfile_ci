@@ -2,10 +2,6 @@ pipeline {
     agent any
 
     stages {
-        stage('Git checkout') {
-            checkout scmGit(branches: [[name: '*/feature_sagar']], extensions: [], userRemoteConfigs: [[credentialsId: 'git', url: 'https://github.com/sagarkc74/maven.git']])
-        }
-
         stage('validate') {
             steps {
                 withMaven(maven: 'maven 3.8') {
