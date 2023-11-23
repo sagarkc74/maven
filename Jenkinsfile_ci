@@ -25,5 +25,18 @@ pipeline {
                 }
             }
         }
+
+        stage('deploy') {
+            steps {
+                script {
+                    def remote = [name: 'Dev', host: '192.168.28.128', allowAnyHost: true]
+                    withCredentials([usernamePassword(credentialsId: 'server', passwordVariable: 'password', usernameVariable: 'uname')]) {
+                       remote.user = uname
+                       remote.password = password
+                       sshPut remote: remote, from: 'target/sagar-app-1.0-SNAPSHOT.jar', into: '/opt/tomcat/apps'
+                   }
+                }
+            }
+        }
     }
 }
