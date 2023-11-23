@@ -9,6 +9,14 @@ pipeline {
 
         }
 
+        stage('Example 2') {
+                    steps {
+                        bat "ls -lrt"
+                        bat "java --version"
+                    }
+
+                }
+
     }
 
 }
