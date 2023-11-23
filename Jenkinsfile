@@ -2,19 +2,21 @@ pipeline {
     agent any
 
     stages {
-        stage  {
-            step {
-                sh '''
-                ls -lrt
-                cd src
-                ls -lrt
-                '''
+        stage('Example') {
+            steps {
+                echo "Hello World"
             }
 
         }
 
+        stage('Example 2') {
+                    steps {
+                        sh "ls -lrt"
+                        sh "java --version"
+                    }
+
+                }
 
     }
-
 
 }
